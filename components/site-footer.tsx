@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone, Instagram, Linkedin, Facebook } from "lucide-react";
 import { site, regions } from "@/lib/site";
 
 export function SiteFooter() {
@@ -15,6 +15,35 @@ export function SiteFooter() {
             Southwest Florida — betreut von Maklerin Manuela Schinagl, FL-Lizenz{" "}
             {site.license}.
           </p>
+          <div className="mt-5 flex items-center gap-3">
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-700 text-stone-300 transition-colors hover:border-[#3fae98] hover:text-[#3fae98]"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-700 text-stone-300 transition-colors hover:border-[#3fae98] hover:text-[#3fae98]"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a
+              href={site.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone-700 text-stone-300 transition-colors hover:border-[#3fae98] hover:text-[#3fae98]"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+          </div>
         </div>
 
         <div>
