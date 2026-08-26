@@ -10,7 +10,7 @@ export const site = {
   rateMyAgent:
     "https://www.ratemyagent.com/real-estate-agent/manuela-schinagl-azzgvy/sales/overview",
   license: "BK3216655",
-  heroImage: "https://g.tlcdn.com/view/2c846186d42f4eb785a4e1114fe5f9fe.jpg",
+  heroImage: "https://galaxy-prod.tlcdn.com/gen/30fcbd74b5c94293b9bc3b42f60a2ea4.png",
   instagram: "https://www.instagram.com/manuelarealty",
   linkedin: "https://www.linkedin.com/in/manuela-schinagl-67975631",
   facebook: "https://www.facebook.com/Floridaimmobilienkauf/",
