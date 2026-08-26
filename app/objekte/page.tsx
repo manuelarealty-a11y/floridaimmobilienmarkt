@@ -5,7 +5,7 @@ import { properties } from "@/lib/site";
 
 export const metadata = {
   title: "Florida Immobilien kaufen | Villen, Condos, Waterfront",
-  alternates: { canonical: "/objekte" },
+  alternates: { canonical: "https://floridaimmobilienkauf.de/objekte" },
   description:
     "Exklusive Villen, Condos, Waterfront-Objekte und Investments in Marco Island, Naples, Bonita Springs und Estero.",
 };

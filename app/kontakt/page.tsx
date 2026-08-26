@@ -5,7 +5,7 @@ import { ContactForm } from "./contact-form";
 
 export const metadata = {
   title: "Kontakt – Kostenlose Erstberatung | Manuela Realty International",
-  alternates: { canonical: "/kontakt" },
+  alternates: { canonical: "https://floridaimmobilienkauf.de/kontakt" },
   description:
     "Immobilienkauf in Florida: Schreiben Sie Manuela Schinagl auf Deutsch. Lizenzierte Brokerin in Marco Island, Naples, Bonita Springs & Estero.",
 };

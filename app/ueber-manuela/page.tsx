@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata = {
   title: "Manuela Schinagl | Immobilienmaklerin Florida Deutsch",
-  alternates: { canonical: "/ueber-manuela" },
+  alternates: { canonical: "https://floridaimmobilienkauf.de/ueber-manuela" },
   description:
     "Manuela Schinagl – Österreicherin, Brokerin in SW-Florida seit 2009. 3× Top 5 Agent (RateMyAgent). Beratung für Käufer aus Deutschland, Österreich & Schweiz.",
 };

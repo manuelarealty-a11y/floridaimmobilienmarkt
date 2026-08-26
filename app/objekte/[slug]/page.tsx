@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${property.title} | ${property.price}`,
     description: property.description,
-    alternates: { canonical: `/objekte/${property.slug}` },
+    alternates: { canonical: `https://floridaimmobilienkauf.de/objekte/${property.slug}` },
     openGraph: { images: [{ url: property.image }] },
   };
 }

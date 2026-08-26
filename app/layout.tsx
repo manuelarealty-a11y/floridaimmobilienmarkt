@@ -66,7 +66,14 @@ const jsonLd = {
     ratingValue: "5.0",
     reviewCount: "49",
   },
-  sameAs: [site.rateMyAgent, "https://www.instagram.com/manuelarealty"],
+  sameAs: [
+    "https://floridaimmobilienkauf.de",
+    site.rateMyAgent,
+    site.instagram,
+    site.linkedin,
+    site.facebook,
+  ],
+  mainEntityOfPage: "https://floridaimmobilienkauf.de",
 };
 
 export default function RootLayout({

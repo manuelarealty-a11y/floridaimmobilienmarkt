@@ -4,7 +4,7 @@ import { blogPosts } from "@/lib/site";
 
 export const metadata = {
   title: "Blog: Florida Immobilienmarkt | Aktuell & auf Deutsch",
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "https://floridaimmobilienkauf.de/blog" },
   description:
     "Monatliche Marktberichte, Kaufratgeber und aktuelle Entwicklungen für Naples, Marco Island, Bonita Springs und Estero.",
 };
