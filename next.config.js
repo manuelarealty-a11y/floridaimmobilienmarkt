@@ -8,6 +8,20 @@ const nextConfig = {
       { protocol: "https", hostname: "galaxy-prod.tlcdn.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/objekte",
+        destination: "https://floridaimmobilienkauf.de/objekte",
+        permanent: true,
+      },
+      {
+        source: "/objekte/:slug",
+        destination: "https://floridaimmobilienkauf.de/objekte/:slug",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
