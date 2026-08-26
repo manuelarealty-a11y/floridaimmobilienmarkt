@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone, Instagram, Linkedin, Facebook } from "lucide-react";
+import { MapPin, Mail, Phone, Instagram, Linkedin, Facebook, ExternalLink } from "lucide-react";
 import { site, regions } from "@/lib/site";
 
 export function SiteFooter() {
@@ -11,7 +11,7 @@ export function SiteFooter() {
             Florida<span className="text-[#3fae98]">immobilienmarkt</span>
           </p>
           <p className="mt-3 text-sm text-stone-400">
-            Deutschsprachige Marktberichte, Regionen und Immobilienangebote für
+            Deutschsprachige Marktberichte, Preisanalysen und Regionsprofile für
             Southwest Florida — betreut von Maklerin Manuela Schinagl, FL-Lizenz{" "}
             {site.license}.
           </p>
@@ -62,7 +62,16 @@ export function SiteFooter() {
         <div>
           <p className="text-sm font-semibold text-white">Für Käufer</p>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><Link href="/objekte" className="hover:text-white">Objekte ansehen</Link></li>
+            <li>
+              <a
+                href={`${site.kaufSiteUrl}/objekte`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 hover:text-white"
+              >
+                Objekte ansehen (floridaimmobilienkauf.de) <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </li>
             <li><Link href="/markt" className="hover:text-white">Marktberichte</Link></li>
             <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
             <li><Link href="/ueber-manuela" className="hover:text-white">Über Manuela</Link></li>

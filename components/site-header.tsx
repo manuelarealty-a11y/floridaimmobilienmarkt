@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
 const navItems = [
-  { href: "/", label: "Start" },
-  { href: "/regionen", label: "Regionen" },
-  { href: "/markt", label: "Marktberichte" },
-  { href: "/objekte", label: "Objekte" },
-  { href: "/blog", label: "Blog" },
-  { href: "/ueber-manuela", label: "Über Manuela" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/", label: "Start", external: false },
+  { href: "/regionen", label: "Regionen", external: false },
+  { href: "/markt", label: "Marktberichte", external: false },
+  { href: site.kaufSiteUrl + "/objekte", label: "Objekte", external: true },
+  { href: "/blog", label: "Blog", external: false },
+  { href: "/ueber-manuela", label: "Über Manuela", external: false },
+  { href: "/kontakt", label: "Kontakt", external: false },
 ];
 
 export function SiteHeader() {
@@ -38,6 +38,8 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noreferrer" : undefined}
               className={cn(
                 "text-sm text-stone-600 transition-colors hover:text-[#0f6b5c]",
                 pathname === item.href && "font-medium text-[#0f6b5c]"
@@ -80,6 +82,8 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
                 onClick={() => setOpen(false)}
                 className="text-sm text-stone-700"
               >
