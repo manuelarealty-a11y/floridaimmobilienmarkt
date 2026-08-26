@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle, ArrowRight } from "lucide-react";
-import { regions, properties, site } from "@/lib/site";
+import { CheckCircle, ArrowRight, ExternalLink } from "lucide-react";
+import { regions, site } from "@/lib/site";
 
 export function generateStaticParams() {
   return regions.map((r) => ({ slug: r.slug }));
@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const region = regions.find((x) => x.slug === slug);
   if (!region) return {};
   return {
-    title: `${region.name} Immobilien Florida | Preise & Objekte`,
-    description: `${region.tagline}. Aktuelle Marktdaten und Objekte in ${region.name}, betreut von Maklerin Manuela Schinagl.`,
+    title: `${region.name} Immobilienmarkt Florida | Preise & Trends`,
+    description: `${region.tagline}. Aktuelle Marktdaten für ${region.name}, betreut von Maklerin Manuela Schinagl.`,
     alternates: { canonical: `/regionen/${region.slug}` },
     openGraph: { images: [{ url: region.image }] },
   };
@@ -24,8 +24,6 @@ export default async function RegionDetailPage({ params }: { params: Promise<{ s
   const { slug } = await params;
   const region = regions.find((x) => x.slug === slug);
   if (!region) notFound();
-
-  const localProperties = properties.filter((p) => p.region === region.slug);
 
   return (
     <div>
@@ -52,30 +50,23 @@ export default async function RegionDetailPage({ params }: { params: Promise<{ s
               ))}
             </ul>
 
-            {localProperties.length > 0 && (
-              <>
-                <h2 className="mt-12 font-serif text-2xl text-stone-900">
-                  Objekte in {region.name}
-                </h2>
-                <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                  {localProperties.map((p) => (
-                    <Link
-                      key={p.slug}
-                      href={`/objekte/${p.slug}`}
-                      className="group overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md"
-                    >
-                      <div className="relative h-40 w-full overflow-hidden">
-                        <Image src={p.image} alt={p.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                      </div>
-                      <div className="p-4">
-                        <p className="font-serif text-stone-900">{p.price}</p>
-                        <p className="mt-1 line-clamp-2 text-sm text-stone-600">{p.title}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </>
-            )}
+            <div className="mt-12 rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+              <h2 className="font-serif text-2xl text-stone-900">
+                Objekte in {region.name} finden
+              </h2>
+              <p className="mt-2 text-stone-600">
+                Die aktuellen Kaufobjekte für {region.name} finden Sie auf unserer
+                Schwesterseite floridaimmobilienkauf.de.
+              </p>
+              <a
+                href={`${site.kaufSiteUrl}/regionen/${region.slug}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#0f6b5c] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#0b5346]"
+              >
+                Objekte in {region.name} ansehen <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           <aside className="h-fit rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">

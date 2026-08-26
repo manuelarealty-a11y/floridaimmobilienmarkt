@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Star, MapPin, ShieldCheck } from "lucide-react";
-import { site, regions, properties, blogPosts } from "@/lib/site";
+import { ArrowRight, Star, ShieldCheck, ExternalLink } from "lucide-react";
+import { site, regions, blogPosts } from "@/lib/site";
 
 const faqs = [
   {
@@ -46,14 +46,14 @@ export default function HomePage() {
         </div>
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-36">
           <p className="text-sm uppercase tracking-[0.25em] text-[#7fd9c4]">
-            Marktberichte & Immobilien · Southwest Florida seit 2009
+            Marktberichte & Preisanalysen · Southwest Florida seit 2009
           </p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl leading-tight text-white md:text-5xl">
             Der deutschsprachige Immobilienmarkt-Guide für Southwest Florida
           </h1>
           <p className="mt-5 max-w-xl text-stone-200">
-            Monatliche Marktberichte, Regionsprofile und ausgewählte Objekte in
-            Marco Island, Naples, Bonita Springs und Estero – betreut von Ihrer
+            Monatliche Marktberichte, Preisanalysen und Regionsprofile für Marco
+            Island, Naples, Bonita Springs und Estero – betreut von Ihrer
             deutschsprachigen Maklerin Manuela Schinagl.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -63,12 +63,14 @@ export default function HomePage() {
             >
               Aktuellen Marktbericht lesen
             </Link>
-            <Link
-              href="/objekte"
-              className="rounded-full border border-white/60 px-6 py-3 text-sm font-medium text-white hover:bg-white/10"
+            <a
+              href={`${site.kaufSiteUrl}/objekte`}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 rounded-full border border-white/60 px-6 py-3 text-sm font-medium text-white hover:bg-white/10"
             >
-              Immobilien ansehen
-            </Link>
+              Immobilien ansehen <ExternalLink className="h-4 w-4" />
+            </a>
           </div>
 
           <div className="mt-14 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
@@ -173,47 +175,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured properties */}
+      {/* Find a property CTA (links out to floridaimmobilienkauf.de instead of duplicating listings) */}
       <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="flex items-end justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-[#0f6b5c]">Immobilien</p>
-            <h2 className="mt-2 font-serif text-3xl text-stone-900">Ausgewählte Objekte</h2>
-          </div>
-          <Link href="/objekte" className="hidden items-center gap-1 text-sm text-[#0f6b5c] hover:underline md:flex">
-            Alle Objekte <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {properties.slice(0, 3).map((p) => (
-            <Link
-              key={p.slug}
-              href={`/objekte/${p.slug}`}
-              className="group overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md"
-            >
-              <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-stone-800">
-                  {p.type}
-                </span>
-              </div>
-              <div className="p-5">
-                <p className="font-serif text-lg text-stone-900">{p.price}</p>
-                <p className="mt-1 flex items-center gap-1 text-sm text-stone-500">
-                  <MapPin className="h-3.5 w-3.5" /> {p.location}
-                </p>
-                <p className="mt-2 line-clamp-2 text-sm text-stone-600">{p.title}</p>
-                <p className="mt-3 text-xs text-stone-500">
-                  {p.beds} Zi. · {p.baths} Bad · {p.size}
-                </p>
-              </div>
-            </Link>
-          ))}
+        <div className="rounded-2xl border border-stone-200 bg-white p-10 text-center shadow-sm">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#0f6b5c]">Objekte finden</p>
+          <h2 className="mt-2 font-serif text-3xl text-stone-900">
+            Aktuelle Kaufobjekte in Southwest Florida
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-stone-600">
+            Die vollständige, laufend aktualisierte Objektübersicht mit Villen,
+            Condos und Waterfront-Immobilien finden Sie auf unserer
+            Schwesterseite floridaimmobilienkauf.de.
+          </p>
+          <a
+            href={`${site.kaufSiteUrl}/objekte`}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#0f6b5c] px-6 py-3 text-sm font-medium text-white hover:bg-[#0b5346]"
+          >
+            Objekte auf floridaimmobilienkauf.de ansehen <ExternalLink className="h-4 w-4" />
+          </a>
         </div>
       </section>
 
