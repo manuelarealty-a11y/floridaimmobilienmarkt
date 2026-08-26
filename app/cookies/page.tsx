@@ -22,7 +22,7 @@ export default function CookiesPage() {
         </p>
         <p>
           Für Fragen zum Datenschutz kontaktieren Sie uns unter{" "}
-          <a href="mailto:office@floridaimmobilienkauf.de">office@floridaimmobilienkauf.de</a>.
+          <a href="mailto:office@floridaimmobilienmarkt.de">office@floridaimmobilienmarkt.de</a>.
         </p>
       </div>
     </div>
