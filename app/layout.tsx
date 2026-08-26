@@ -42,6 +42,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const heroImageObject = {
+  "@type": "ImageObject",
+  url: site.heroImage,
+  contentUrl: site.heroImage,
+  creator: { "@type": "Organization", name: "Manuela Realty International" },
+  creditText: "Manuela Realty International",
+  copyrightNotice: `© ${new Date().getFullYear()} Manuela Realty International`,
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
@@ -50,7 +59,7 @@ const jsonLd = {
   url: BASE_URL,
   telephone: site.phone,
   email: site.email,
-  image: site.heroImage,
+  image: heroImageObject,
   address: {
     "@type": "PostalAddress",
     streetAddress: "950 N. Collier Blvd, Suite 400",
@@ -76,6 +85,8 @@ const jsonLd = {
   mainEntityOfPage: "https://floridaimmobilienkauf.de",
 };
 
+const imageJsonLd = heroImageObject;
+
 export default function RootLayout({
   children,
 }: {
@@ -87,6 +98,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(imageJsonLd) }}
         />
       </head>
       <body className={`${serif.variable} ${sans.variable} bg-[#fbf8f3] font-sans text-stone-800 antialiased`}>
