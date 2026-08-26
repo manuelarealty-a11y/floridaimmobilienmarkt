@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} | Florida Immobilienmarkt`,
     description: post.excerpt,
-    alternates: { canonical: `https://floridaimmobilienkauf.de/blog/${post.slug}` },
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: { images: [{ url: post.image }] },
   };
 }

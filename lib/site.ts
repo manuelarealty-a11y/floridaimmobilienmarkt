@@ -1,6 +1,7 @@
 export const site = {
   name: "Florida Immobilienmarkt",
   domain: "floridaimmobilienmarkt.de",
+  kaufSiteUrl: "https://floridaimmobilienkauf.de",
   phone: "+1 (239) 450-5622",
   phoneHref: "tel:+12394505622",
   whatsapp:
@@ -87,149 +88,6 @@ export const regions = [
   },
 ];
 
-export const properties = [
-  {
-    slug: "waterfront-villa-bootsdock-marco-island",
-    title: "Waterfront-Villa mit Bootsdock – direkter Meereszugang",
-    price: "2.950.000 €",
-    location: "Marco Island, Gulf of Mexico",
-    region: "marco-island",
-    type: "Villa",
-    beds: 4,
-    baths: 4,
-    size: "380 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/906db9a6-9b86-4a83-a025-9f942ed8f108.jpg",
-    description:
-      "Spektakuläre Waterfront-Villa auf Marco Island mit eigenem Bootsdock und direktem Zugang zum Golf von Mexiko. Hochwertige Ausstattung auf 380 m².",
-  },
-  {
-    slug: "luxus-penthouse-meerblick-marco-island",
-    title: "Luxus-Penthouse mit 270°-Meerblick – Marco Island Highrise",
-    price: "1.940.000 €",
-    location: "Marco Island, South Seas Tower",
-    region: "marco-island",
-    type: "Penthouse",
-    beds: 3,
-    baths: 3,
-    size: "230 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/c494c149-f42f-4dd3-93fa-be1ef0026133.jpg",
-    description:
-      "Exklusives Penthouse im 18. Stock mit atemberaubendem 270°-Panoramablick über den Golf von Mexiko. Vollständig renoviert mit Premium-Ausstattung.",
-  },
-  {
-    slug: "strandhaus-marco-island",
-    title: "Modernes Strandhaus – Gehobenste Architektur auf Marco Island",
-    price: "3.780.000 €",
-    location: "Marco Island, Crescent Beach",
-    region: "marco-island",
-    type: "Haus",
-    beds: 5,
-    baths: 5,
-    size: "490 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/b7eabb88-9c4c-4dd2-8cab-6e9ab6d3d533.jpg",
-    description:
-      "Architektonisches Meisterwerk direkt am Crescent Beach – 5 Schlafzimmer, Panoramafenster auf allen Ebenen und modernste Smart-Home-Technologie.",
-  },
-  {
-    slug: "strandvilla-golf-von-mexiko-naples",
-    title: "Luxusvilla direkt am Golf – Port Royal Exklusivlage",
-    price: "6.920.000 €",
-    location: "Naples, Port Royal",
-    region: "naples",
-    type: "Villa",
-    beds: 5,
-    baths: 6,
-    size: "580 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/eea4659a-477f-4390-9583-8f375aef9ebe.jpg",
-    description:
-      "Ikonisches Strandanwesen in der exklusivsten Adresse Neapels – Port Royal. 5 Schlafzimmer, separates Gästehaus und direkter Strandzugang.",
-  },
-  {
-    slug: "golf-estate-pelican-bay-naples",
-    title: "Golf-Estate Pelican Bay – Wohnen auf dem Golfplatz",
-    price: "3.500.000 €",
-    location: "Naples, Pelican Bay",
-    region: "naples",
-    type: "Estate",
-    beds: 4,
-    baths: 4,
-    size: "440 m²",
-    image: "https://g.tlcdn.com/view/284bf3fa5bc848e986f50bbd6deffe66.jpg",
-    description:
-      "Elegantes Estate in der renommierten Pelican Bay Community direkt an der Fairway. Exklusive Gemeinschaft mit privatem Strandclub und Golfplatz.",
-  },
-  {
-    slug: "penthouse-downtown-naples",
-    title: "Penthouse über den Dächern von Naples – 5th Avenue Skyline",
-    price: "3.870.000 €",
-    location: "Naples, Downtown / 5th Ave South",
-    region: "naples",
-    type: "Penthouse",
-    beds: 3,
-    baths: 4,
-    size: "310 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/d1a4868d-ebc4-4819-87fd-c459d62c7c8a.jpg",
-    description:
-      "Spektakuläres Penthouse im Herzen von Naples, fußläufig zur 5th Avenue South. Privater Rooftop-Pool und 360°-Panoramablick über den Golf.",
-  },
-  {
-    slug: "lanai-estate-infinity-pool-bonita-springs",
-    title: "Lanai Estate mit Infinity-Pool – Bonita Bay Community",
-    price: "1.940.000 €",
-    location: "Bonita Springs, Bonita Bay",
-    region: "bonita-springs",
-    type: "Estate",
-    beds: 4,
-    baths: 4,
-    size: "340 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/1a90ecda-9087-42f5-9e7e-19d93143c993.jpg",
-    description:
-      "Repräsentatives Estate in der begehrten Bonita Bay Community – Infinity-Pool, Golfblick und exklusiver Zugang zu Marina, Tennisanlagen und Strandclub.",
-  },
-  {
-    slug: "kanalhaus-modern-bonita-springs",
-    title: "Modernes Kanalhaus – Design-Architektur mit Bootsanleger",
-    price: "1.065.000 €",
-    location: "Bonita Springs, Riviera Colony",
-    region: "bonita-springs",
-    type: "Haus",
-    beds: 3,
-    baths: 3,
-    size: "235 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/39a51ebf-5215-458e-abbc-042ab8ada47a.jpg",
-    description:
-      "Frisch renoviertes Kanalhaus in Riviera Colony – Design-Architektur, neuer Bootsanleger und keine HOA-Gebühren.",
-  },
-  {
-    slug: "miromar-lakes-villa-estero",
-    title: "Miromar Lakes Villa – Direkt am See mit privatem Bootssteg",
-    price: "1.800.000 €",
-    location: "Estero, Miromar Lakes Beach & Golf Club",
-    region: "estero",
-    type: "Villa",
-    beds: 4,
-    baths: 4,
-    size: "310 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/64cfda90-2aa5-4a3b-89c6-011d39980a02.jpg",
-    description:
-      "Preisgekrönte Miromar Lakes Community – direkt am See, mit privatem Bootssteg, Seesandstrand und Golf-Mitgliedschaft inklusive.",
-  },
-  {
-    slug: "penthouse-estero-ii",
-    title: "Penthouse Estero – Exklusives Topfloor-Apartment mit Seeblick",
-    price: "905.000 €",
-    location: "Estero, The Place at Corkscrew",
-    region: "estero",
-    type: "Penthouse",
-    beds: 3,
-    baths: 3,
-    size: "195 m²",
-    image: "https://galaxy-prod.tlcdn.com/gen/user_34UA4cW3cbzBQGmYyUmoGDJOmj5/ff4f3cf1-79c1-472f-9ad5-debdb5fde1fe.jpg",
-    description:
-      "Exklusives Penthouse im Top-Floor von The Place at Corkscrew mit unverbautem Seeblick, hochwertiger Upgradeküche und Resort-Amenities.",
-  },
-];
-
 export const blogPosts = [
   {
     slug: "sw-florida-immobilien-august-2026",
@@ -242,20 +100,20 @@ export const blogPosts = [
   },
   {
     slug: "sw-florida-immobilien-juli-2026",
-    title: "Was Käufer zur Hurricane-Saison wissen müssen",
+    title: "Marktbericht Juli 2026: Auswirkungen der Hurricane-Saison auf Angebot und Preise",
     date: "1. Juli 2026",
     readTime: "6 Min. Lesezeit",
     excerpt:
-      "Die Hurrikansaison in Florida dauert offiziell vom 1. Juni bis zum 30. November – und viele deutschsprachige Käufer, die sich für den Immobilienkauf in Southwest Florida interessieren, fragen sich, was das für ihren Kauf bedeutet.",
+      "Unsere monatliche Datenauswertung zeigt: Zwischen Juni und November verschiebt sich die Nachfrage in SW-Florida saisonal – Inventar, Preisverhandlungsspielraum und Tage-bis-Verkauf entwickeln sich in Naples, Marco Island, Bonita Springs und Estero unterschiedlich stark.",
     image: "https://galaxy-prod.tlcdn.com/gen/bca8a3774ce8459a93714de64dea8014.png",
   },
   {
     slug: "sw-florida-immobilienmarkt-juni-2026",
-    title: "Preise, Trends und Kaufchancen im Juni 2026",
+    title: "Marktdaten Juni 2026: Medianpreise und Angebotslage im Regionsvergleich",
     date: "9. Juni 2026",
     readTime: "6 Min. Lesezeit",
     excerpt:
-      "Aktuelle Marktanalyse SW Florida Juni 2026: Medianpreise, Angebotslage und Kaufchancen in Naples, Marco Island, Bonita Springs und Estero.",
+      "Im Regionsvergleich Juni 2026 zeigen sich deutliche Unterschiede: Während Naples weiter zulegt, kühlen Bonita Springs und Estero leicht ab. Ein datengestützter Überblick über Medianpreise, Tage-bis-Verkauf und Angebotsdichte in allen vier SW-Florida-Regionen.",
     image: "https://galaxy-prod.tlcdn.com/gen/017994a446204c5cbbb596b09c095d66.png",
   },
 ];
