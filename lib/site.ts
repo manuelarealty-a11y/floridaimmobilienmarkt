@@ -6,7 +6,7 @@ export const site = {
   phoneHref: "tel:+12394505622",
   whatsapp:
     "https://wa.me/12394505622?text=Hallo%20Manuela%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Immobilie%20in%20SW-Florida.",
-  email: "office@floridaimmobilienmarkt.de",
+  email: "manuelarealty@gmail.com",
   address: "950 N. Collier Blvd, Suite 400, Marco Island, FL 34145",
   rateMyAgent:
     "https://www.ratemyagent.com/real-estate-agent/manuela-schinagl-azzgvy/sales/overview",
