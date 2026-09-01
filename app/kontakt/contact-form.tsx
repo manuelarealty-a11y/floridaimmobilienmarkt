@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Loader2, CheckCircle2 } from "lucide-react";
 
-const CONTACT_EMAIL = "manuelarealty@gmail.com";
+const CONTACT_EMAIL = "office@floridaimmobilienmarkt.de";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
