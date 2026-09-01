@@ -1,41 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-const CONTACT_EMAIL = "office@floridaimmobilienmarkt.de";
+const WEB3FORMS_ACCESS_KEY = "c07628c5-1ba3-4aef-87c8-8b8d8d1e42f4";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
 
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = (data.get("name") as string) || "";
-    const email = (data.get("email") as string) || "";
-    const phone = (data.get("phone") as string) || "";
-    const region = (data.get("region") as string) || "";
-    const message = (data.get("message") as string) || "";
+    data.append("access_key", WEB3FORMS_ACCESS_KEY);
+    data.append("subject", `Neue Anfrage über floridaimmobilienmarkt.de – ${data.get("name") || ""}`);
+    data.append("from_name", "Florida Immobilienmarkt – Kontaktformular");
 
-    const subject = `Neue Anfrage über floridaimmobilienmarkt.de – ${name}`;
-    const body = [
-      `Name: ${name}`,
-      `E-Mail: ${email}`,
-      `Telefon / WhatsApp: ${phone}`,
-      `Interessiert an: ${region}`,
-      "",
-      "Nachricht:",
-      message,
-    ].join("\n");
-
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    setTimeout(() => setStatus("sent"), 900);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+      const result = await res.json();
+      setStatus(result.success ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   if (status === "sent") {
@@ -44,9 +37,7 @@ export function ContactForm() {
         <CheckCircle2 className="h-10 w-10 text-[#0f6b5c]" />
         <h2 className="mt-4 font-serif text-xl text-stone-900">Vielen Dank für Ihre Anfrage!</h2>
         <p className="mt-2 text-sm text-stone-600">
-          Ihr E-Mail-Programm sollte sich mit einer vorausgefüllten Nachricht geöffnet
-          haben – bitte senden Sie diese ab, damit Manuela sich innerhalb von 24 Stunden
-          persönlich bei Ihnen meldet.
+          Manuela meldet sich in der Regel innerhalb von 24 Stunden persönlich bei Ihnen.
         </p>
       </div>
     );
@@ -90,6 +81,12 @@ export function ContactForm() {
       <p className="text-xs text-stone-500">
         * Pflichtfelder. Ihre Daten werden nur zur Beantwortung Ihrer Anfrage genutzt und nicht an Dritte weitergegeben.
       </p>
+
+      {status === "error" && (
+        <p className="flex items-center gap-2 text-sm text-red-600">
+          <AlertCircle className="h-4 w-4" /> Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder rufen Sie direkt an.
+        </p>
+      )}
 
       <button
         type="submit"
