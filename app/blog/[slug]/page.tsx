@@ -35,18 +35,30 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </div>
 
       <div className="prose prose-stone mt-10 max-w-none">
-        <p>{post.excerpt}</p>
-        <p>
-          Als deutschsprachige Maklerin begleite ich meine Kunden seit über 17
-          Jahren durch den Immobilienmarkt in Southwest Florida. Dieser Bericht
-          fasst die wichtigsten Entwicklungen für Naples, Marco Island, Bonita
-          Springs und Estero zusammen.
-        </p>
-        <p>
-          Möchten Sie eine individuelle Einschätzung für Ihre Zielregion oder
-          ein konkretes Objekt? Kontaktieren Sie mich gerne für ein
-          kostenloses, unverbindliches Beratungsgespräch auf Deutsch.
-        </p>
+        {post.content ? (
+          post.content.map((block, i) =>
+            block.type === "h2" ? (
+              <h2 key={i}>{block.text}</h2>
+            ) : (
+              <p key={i}>{block.text}</p>
+            )
+          )
+        ) : (
+          <>
+            <p>{post.excerpt}</p>
+            <p>
+              Als deutschsprachige Maklerin begleite ich meine Kunden seit über 17
+              Jahren durch den Immobilienmarkt in Southwest Florida. Dieser Bericht
+              fasst die wichtigsten Entwicklungen für Naples, Marco Island, Bonita
+              Springs und Estero zusammen.
+            </p>
+            <p>
+              Möchten Sie eine individuelle Einschätzung für Ihre Zielregion oder
+              ein konkretes Objekt? Kontaktieren Sie mich gerne für ein
+              kostenloses, unverbindliches Beratungsgespräch auf Deutsch.
+            </p>
+          </>
+        )}
       </div>
 
       <div className="mt-12 rounded-2xl border border-stone-200 bg-white p-8 text-center shadow-sm">
