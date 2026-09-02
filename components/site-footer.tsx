@@ -101,9 +101,20 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-stone-800 py-6 text-center text-xs text-stone-500">
-        © {new Date().getFullYear()} Florida Immobilienmarkt · Manuela Schinagl, Manuela Realty
-        International · FL-Maklerlizenz {site.license}
+      <div className="border-t border-stone-800">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-stone-500 sm:flex-row">
+          <span>
+            © {new Date().getFullYear()} Florida Immobilienmarkt · Manuela Schinagl, Manuela Realty
+            International · FL-Maklerlizenz {site.license}
+          </span>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/impressum" className="hover:text-white transition-colors">Impressum</Link>
+            <Link href="/datenschutz" className="hover:text-white transition-colors">Datenschutz</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
+            <Link href="/nutzungsbedingungen" className="hover:text-white transition-colors">Nutzungsbedingungen</Link>
+            <Link href="/kontakt" className="hover:text-white transition-colors">Kontakt</Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
