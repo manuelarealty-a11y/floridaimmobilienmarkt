@@ -73,6 +73,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li><Link href="/markt" className="hover:text-white">Marktberichte</Link></li>
+            <li><Link href="/markt#verkaeufer" className="hover:text-white">Für Verkäufer</Link></li>
             <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
             <li><Link href="/ueber-manuela" className="hover:text-white">Über Manuela</Link></li>
             <li>

@@ -11,6 +11,7 @@ const navItems = [
   { href: "/", label: "Start", external: false },
   { href: "/regionen", label: "Regionen", external: false },
   { href: "/markt", label: "Marktberichte", external: false },
+  { href: "/markt#verkaeufer", label: "Für Verkäufer", external: false },
   { href: site.kaufSiteUrl + "/objekte", label: "Objekte", external: true },
   { href: "/blog", label: "Blog", external: false },
   { href: "/ueber-manuela", label: "Über Manuela", external: false },
