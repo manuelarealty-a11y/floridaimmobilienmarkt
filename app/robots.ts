@@ -18,6 +18,8 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Applebot-Extended", allow: "/" },
     ],
     sitemap: "https://floridaimmobilienmarkt.de/sitemap.xml",
-    host: "https://floridaimmobilienmarkt.de",
+    // NOTE: "host" field removed - generates a non-standard "Host:" directive
+    // that Google/Bing ignore and that tools flag as malformed. Canonical
+    // host is already signaled via canonical tags and the sitemap.
   };
 }
