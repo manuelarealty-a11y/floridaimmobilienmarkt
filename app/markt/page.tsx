@@ -3,7 +3,7 @@ import { TrendingUp, TrendingDown, Activity, ArrowRight } from "lucide-react";
 import { regions, marketStats } from "@/lib/site";
 
 export const metadata = {
-  title: "Immobilienmarkt Southwest Florida 2026 – Preise, Trends, Kaufchancen",
+  title: "Immobilienmarkt Southwest Florida 2026 – Preise & Trends",
   alternates: { canonical: "/markt" },
   description:
     "Aktueller Marktbericht Southwest Florida: Median-Verkaufspreise und Trends für Naples, Marco Island, Bonita Springs und Estero – Quellen: Redfin, Zillow.",
@@ -22,6 +22,19 @@ export default function MarktPage() {
         und Realtor.com. Für eine detaillierte, aktuelle Bewertung Ihrer
         Zielregion empfehlen wir ein persönliches Beratungsgespräch mit
         Manuela Schinagl.
+      </p>
+      <p className="mt-3 max-w-2xl text-sm text-stone-500">
+        Dies ist der vollständige, laufend aktualisierte Marktbericht für
+        Southwest Florida. Was diese Zahlen konkret für Ihre Kaufentscheidung
+        bedeuten, lesen Sie in unserer{" "}
+        <a
+          href="https://floridaimmobilienkauf.de/marktbericht"
+          className="text-[#0f6b5c] hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Marktanalyse für Käufer auf floridaimmobilienkauf.de
+        </a>.
       </p>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
