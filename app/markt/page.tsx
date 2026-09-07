@@ -3,16 +3,23 @@ import { TrendingUp, TrendingDown, Activity, ArrowRight } from "lucide-react";
 import { regions, marketStats } from "@/lib/site";
 
 export const metadata = {
-  title: "Immobilienmarkt Southwest Florida 2026 – Preise & Trends",
+  title: "Immobilienmarkt SW-Florida 2026 – für Käufer & Verkäufer",
   alternates: { canonical: "/markt" },
   description:
-    "Aktueller Marktbericht Southwest Florida: Median-Verkaufspreise und Trends für Naples, Marco Island, Bonita Springs und Estero – Quellen: Redfin, Zillow.",
+    "Marktbericht Southwest Florida für Käufer und Verkäufer: Median-Preise, Trends und was das für Ihre Kauf- oder Verkaufsentscheidung bedeutet.",
+  keywords: [
+    "Immobilienmarkt Southwest Florida",
+    "Marktbericht Florida Verkäufer",
+    "Haus verkaufen Florida Preis",
+    "Verkaufspreis Immobilie Florida 2026",
+    "Immobilienmarkt Naples Marco Island Verkäufer",
+  ],
 };
 
 export default function MarktPage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-16">
-      <p className="text-sm uppercase tracking-[0.2em] text-[#0f6b5c]">Marktberichte</p>
+      <p className="text-sm uppercase tracking-[0.2em] text-[#0f6b5c]">Marktberichte für Käufer &amp; Verkäufer</p>
       <h1 className="mt-2 font-serif text-4xl text-stone-900">
         Immobilienmarkt Southwest Florida 2026
       </h1>
@@ -128,6 +135,62 @@ export default function MarktPage() {
           >
             Persönliche Markteinschätzung anfragen
           </Link>
+        </div>
+      </section>
+
+      <section id="verkaeufer" className="mt-16 rounded-2xl border border-stone-200 bg-stone-50 p-8 md:p-10">
+        <p className="text-sm uppercase tracking-[0.2em] text-[#0f6b5c]">Für Verkäufer</p>
+        <h2 className="mt-2 font-serif text-2xl text-stone-900">
+          Was der Markt 2026 für Ihren Verkauf bedeutet
+        </h2>
+        <div className="mt-6 grid gap-10 md:grid-cols-2">
+          <ul className="space-y-4 text-stone-700">
+            <li>
+              <strong>Naples:</strong> Weiter steigende Preise (+3,5% ggü.
+              Vorjahr) sprechen für eine realistische, aber selbstbewusste
+              Preisstrategie – besonders bei hochwertigen und Wasserlagen.
+            </li>
+            <li>
+              <strong>Marco Island &amp; Bonita Springs:</strong> Leicht
+              rückläufige Median-Preise bedeuten mehr Verhandlungsbereitschaft
+              der Käuferseite – eine marktgerechte Einstiegspreisstrategie ist
+              hier entscheidend für eine zügige Vermarktung.
+            </li>
+            <li>
+              <strong>Estero:</strong> Die spürbare Preiskorrektur (-7,0%)
+              erfordert eine besonders sorgfältige Bewertung, um im
+              aktuellen Käufermarkt konkurrenzfähig zu bleiben.
+            </li>
+            <li>
+              <strong>Timing:</strong> Die ruhigere Verkaufsphase Juni bis
+              November eignet sich oft gut zur Vorbereitung (Home Staging,
+              Fotos, Preisstrategie) für den Verkaufsstart zur Hochsaison
+              ab Dezember.
+            </li>
+          </ul>
+          <div>
+            <p className="text-stone-700">
+              Eine erfolgreiche Preisstrategie berücksichtigt nicht nur den
+              regionalen Median, sondern auch Lage, Zustand und
+              Vergleichsverkäufe Ihrer konkreten Immobilie. Eine kostenlose
+              erste Einschätzung hilft, realistische Erwartungen zu setzen.
+            </p>
+            <Link
+              href="https://floridaimmobilienkauf.de/ratgeber/verkaufsablauf-florida-deutsche"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1 text-[#0f6b5c] hover:underline"
+            >
+              Verkaufsablauf &amp; Steuertipps für Verkäufer <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <br />
+            <Link
+              href="/kontakt"
+              className="mt-6 inline-flex items-center gap-1 rounded-full bg-[#0f6b5c] px-6 py-3 text-sm font-medium text-white hover:bg-[#0b5346]"
+            >
+              Kostenlose Verkaufseinschätzung anfragen
+            </Link>
+          </div>
         </div>
       </section>
 
