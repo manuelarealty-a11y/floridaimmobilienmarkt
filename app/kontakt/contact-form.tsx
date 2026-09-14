@@ -1,33 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Script from "next/script";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
-const WEB3FORMS_ACCESS_KEY = "c07628c5-1ba3-4aef-87c8-8b8d8d1e42f4";
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: string | HTMLElement,
+        options: Record<string, unknown>
+      ) => string;
+      reset: (widgetId?: string) => void;
+    };
+  }
+}
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+
+  function renderTurnstile() {
+    if (widgetIdRef.current || !turnstileRef.current || !window.turnstile) return;
+    widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      callback: (token: string) => setTurnstileToken(token),
+      "expired-callback": () => setTurnstileToken(""),
+      "error-callback": () => setTurnstileToken(""),
+    });
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!turnstileToken) {
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
 
     const form = e.currentTarget;
     const data = new FormData(form);
-    data.append("access_key", WEB3FORMS_ACCESS_KEY);
-    data.append("subject", `Neue Anfrage über floridaimmobilienmarkt.de – ${data.get("name") || ""}`);
-    data.append("from_name", "Florida Immobilienmarkt – Kontaktformular");
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { Accept: "application/json" },
         body: data,
+        headers: { "cf-turnstile-response": turnstileToken },
       });
-      const result = await res.json();
-      setStatus(result.success ? "sent" : "error");
+      const result = await res.json().catch(() => ({}));
+      setStatus(res.ok && result.success ? "sent" : "error");
+      if (!(res.ok && result.success) && window.turnstile && widgetIdRef.current) {
+        window.turnstile.reset(widgetIdRef.current);
+        setTurnstileToken("");
+      }
     } catch {
       setStatus("error");
+      if (window.turnstile && widgetIdRef.current) {
+        window.turnstile.reset(widgetIdRef.current);
+      }
+      setTurnstileToken("");
     }
   };
 
@@ -45,6 +82,12 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="lazyOnload"
+        onLoad={renderTurnstile}
+      />
+
       <h1 className="font-serif text-2xl text-stone-900">Kostenlose Erstberatung anfragen</h1>
       <p className="text-sm text-stone-600">
         Schreiben Sie Manuela oder rufen Sie direkt an – auf Deutsch, unverbindlich und kostenlos.
@@ -77,6 +120,8 @@ export function ContactForm() {
         <label className="text-sm font-medium text-stone-700">Ihre Nachricht / Anfrage *</label>
         <textarea required name="message" rows={4} className="mt-1 w-full rounded-lg border border-stone-300 px-4 py-2.5 text-sm focus:border-[#0f6b5c] focus:outline-none" />
       </div>
+
+      <div ref={turnstileRef} className="cf-turnstile" />
 
       <p className="text-xs text-stone-500">
         * Pflichtfelder. Ihre Daten werden nur zur Beantwortung Ihrer Anfrage genutzt und nicht an Dritte weitergegeben.
