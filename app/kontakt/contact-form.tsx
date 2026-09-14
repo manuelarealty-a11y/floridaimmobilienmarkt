@@ -21,7 +21,7 @@ declare global {
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "needs-verification">("idle");
   const [turnstileToken, setTurnstileToken] = useState("");
   const turnstileRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
@@ -30,7 +30,10 @@ export function ContactForm() {
     if (widgetIdRef.current || !turnstileRef.current || !window.turnstile) return;
     widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
       sitekey: TURNSTILE_SITE_KEY,
-      callback: (token: string) => setTurnstileToken(token),
+      callback: (token: string) => {
+        setTurnstileToken(token);
+        setStatus((s) => (s === "needs-verification" ? "idle" : s));
+      },
       "expired-callback": () => setTurnstileToken(""),
       "error-callback": () => setTurnstileToken(""),
     });
@@ -40,7 +43,8 @@ export function ContactForm() {
     e.preventDefault();
 
     if (!turnstileToken) {
-      setStatus("error");
+      setStatus("needs-verification");
+      turnstileRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
 
@@ -127,7 +131,14 @@ export function ContactForm() {
         <textarea required name="message" rows={4} className="mt-1 w-full rounded-lg border border-stone-300 px-4 py-2.5 text-sm focus:border-[#0f6b5c] focus:outline-none" />
       </div>
 
-      <div ref={turnstileRef} className="cf-turnstile" />
+      <div>
+        <div ref={turnstileRef} className="cf-turnstile" />
+        {status === "needs-verification" && (
+          <p className="mt-2 flex items-center gap-2 text-sm text-amber-700">
+            <AlertCircle className="h-4 w-4" /> Bitte bestätigen Sie oben im Kästchen, dass Sie kein Roboter sind, bevor Sie senden.
+          </p>
+        )}
+      </div>
 
       <p className="text-xs text-stone-500">
         * Pflichtfelder. Ihre Daten werden nur zur Beantwortung Ihrer Anfrage genutzt und nicht an Dritte weitergegeben.
