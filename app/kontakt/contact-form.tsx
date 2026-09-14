@@ -1,77 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import Script from "next/script";
+import { useState } from "react";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
 const WEB3FORMS_ACCESS_KEY = "c07628c5-1ba3-4aef-87c8-8b8d8d1e42f4";
 
-declare global {
-  interface Window {
-    turnstile?: {
-      render: (
-        container: string | HTMLElement,
-        options: Record<string, unknown>
-      ) => string;
-      reset: (widgetId?: string) => void;
-      remove: (widgetId?: string) => void;
-    };
-  }
-}
-
-const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
-
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "needs-verification">("idle");
-  const [turnstileToken, setTurnstileToken] = useState("");
-  const turnstileRef = useRef<HTMLDivElement>(null);
-  const widgetIdRef = useRef<string | null>(null);
-
-  function renderTurnstile() {
-    if (widgetIdRef.current || !turnstileRef.current || !window.turnstile) return;
-    // Defensive: clear any leftover markup in the container before rendering,
-    // in case a previous widget instance left stale DOM behind (e.g. after a
-    // client-side navigation away and back without a full page reload).
-    turnstileRef.current.innerHTML = "";
-    widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
-      sitekey: TURNSTILE_SITE_KEY,
-      callback: (token: string) => {
-        setTurnstileToken(token);
-        setStatus((s) => (s === "needs-verification" ? "idle" : s));
-      },
-      "expired-callback": () => setTurnstileToken(""),
-      "error-callback": () => setTurnstileToken(""),
-    });
-  }
-
-  useEffect(() => {
-    return () => {
-      // Properly unregister the widget on unmount so a remount (e.g. via
-      // client-side navigation) doesn't collide with a stale registration.
-      if (window.turnstile && widgetIdRef.current) {
-        try {
-          window.turnstile.remove(widgetIdRef.current);
-        } catch {
-          // no-op: widget may already be gone
-        }
-      }
-    };
-  }, []);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Client-side gate only: the visitor must solve the Cloudflare Turnstile
-    // challenge before we even attempt to send. We deliberately do NOT forward
-    // the token to Web3Forms — their API treats the "cf-turnstile-response"
-    // field name as a Pro-only feature and rejects the ENTIRE submission if
-    // that field is present at all, even with a valid token, on the free plan.
-    if (!turnstileToken) {
-      setStatus("needs-verification");
-      turnstileRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-      return;
-    }
-
     setStatus("sending");
 
     const form = e.currentTarget;
@@ -86,18 +24,10 @@ export function ContactForm() {
         headers: { Accept: "application/json" },
         body: data,
       });
-      const result = await res.json().catch(() => ({}));
+      const result = await res.json();
       setStatus(result.success ? "sent" : "error");
-      if (!result.success && window.turnstile && widgetIdRef.current) {
-        window.turnstile.reset(widgetIdRef.current);
-        setTurnstileToken("");
-      }
     } catch {
       setStatus("error");
-      if (window.turnstile && widgetIdRef.current) {
-        window.turnstile.reset(widgetIdRef.current);
-      }
-      setTurnstileToken("");
     }
   };
 
@@ -115,12 +45,6 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-        onLoad={renderTurnstile}
-      />
-
       <h1 className="font-serif text-2xl text-stone-900">Kostenlose Erstberatung anfragen</h1>
       <p className="text-sm text-stone-600">
         Schreiben Sie Manuela oder rufen Sie direkt an – auf Deutsch, unverbindlich und kostenlos.
@@ -152,15 +76,6 @@ export function ContactForm() {
       <div>
         <label className="text-sm font-medium text-stone-700">Ihre Nachricht / Anfrage *</label>
         <textarea required name="message" rows={4} className="mt-1 w-full rounded-lg border border-stone-300 px-4 py-2.5 text-sm focus:border-[#0f6b5c] focus:outline-none" />
-      </div>
-
-      <div>
-        <div ref={turnstileRef} className="cf-turnstile" />
-        {status === "needs-verification" && (
-          <p className="mt-2 flex items-center gap-2 text-sm text-amber-700">
-            <AlertCircle className="h-4 w-4" /> Bitte bestätigen Sie oben im Kästchen, dass Sie kein Roboter sind, bevor Sie senden.
-          </p>
-        )}
       </div>
 
       <p className="text-xs text-stone-500">
