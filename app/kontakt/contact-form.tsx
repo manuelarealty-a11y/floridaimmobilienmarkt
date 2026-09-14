@@ -42,6 +42,11 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Client-side gate only: the visitor must solve the Cloudflare Turnstile
+    // challenge before we even attempt to send. We deliberately do NOT forward
+    // the token to Web3Forms — their API treats the "cf-turnstile-response"
+    // field name as a Pro-only feature and rejects the ENTIRE submission if
+    // that field is present at all, even with a valid token, on the free plan.
     if (!turnstileToken) {
       setStatus("needs-verification");
       turnstileRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -55,7 +60,6 @@ export function ContactForm() {
     data.append("access_key", WEB3FORMS_ACCESS_KEY);
     data.append("subject", `Neue Anfrage über floridaimmobilienmarkt.de — ${data.get("name") || ""}`);
     data.append("from_name", "Florida Immobilienmarkt — Kontaktformular");
-    data.append("cf-turnstile-response", turnstileToken);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
