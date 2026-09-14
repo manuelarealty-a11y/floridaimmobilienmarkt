@@ -4,6 +4,8 @@ import { useState, useRef } from "react";
 import Script from "next/script";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
+const WEB3FORMS_ACCESS_KEY = "c07628c5-1ba3-4aef-87c8-8b8d8d1e42f4";
+
 declare global {
   interface Window {
     turnstile?: {
@@ -46,16 +48,20 @@ export function ContactForm() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    data.append("access_key", WEB3FORMS_ACCESS_KEY);
+    data.append("subject", `Neue Anfrage über floridaimmobilienmarkt.de — ${data.get("name") || ""}`);
+    data.append("from_name", "Florida Immobilienmarkt — Kontaktformular");
+    data.append("cf-turnstile-response", turnstileToken);
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
+        headers: { Accept: "application/json" },
         body: data,
-        headers: { "cf-turnstile-response": turnstileToken },
       });
       const result = await res.json().catch(() => ({}));
-      setStatus(res.ok && result.success ? "sent" : "error");
-      if (!(res.ok && result.success) && window.turnstile && widgetIdRef.current) {
+      setStatus(result.success ? "sent" : "error");
+      if (!result.success && window.turnstile && widgetIdRef.current) {
         window.turnstile.reset(widgetIdRef.current);
         setTurnstileToken("");
       }
