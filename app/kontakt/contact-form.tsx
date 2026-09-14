@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Script from "next/script";
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
@@ -14,6 +14,7 @@ declare global {
         options: Record<string, unknown>
       ) => string;
       reset: (widgetId?: string) => void;
+      remove: (widgetId?: string) => void;
     };
   }
 }
@@ -28,6 +29,10 @@ export function ContactForm() {
 
   function renderTurnstile() {
     if (widgetIdRef.current || !turnstileRef.current || !window.turnstile) return;
+    // Defensive: clear any leftover markup in the container before rendering,
+    // in case a previous widget instance left stale DOM behind (e.g. after a
+    // client-side navigation away and back without a full page reload).
+    turnstileRef.current.innerHTML = "";
     widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
       sitekey: TURNSTILE_SITE_KEY,
       callback: (token: string) => {
@@ -38,6 +43,20 @@ export function ContactForm() {
       "error-callback": () => setTurnstileToken(""),
     });
   }
+
+  useEffect(() => {
+    return () => {
+      // Properly unregister the widget on unmount so a remount (e.g. via
+      // client-side navigation) doesn't collide with a stale registration.
+      if (window.turnstile && widgetIdRef.current) {
+        try {
+          window.turnstile.remove(widgetIdRef.current);
+        } catch {
+          // no-op: widget may already be gone
+        }
+      }
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
