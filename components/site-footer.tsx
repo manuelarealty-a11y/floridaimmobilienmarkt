@@ -64,6 +64,16 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <a
+                href="https://1066ruppertrd.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-white font-medium hover:text-[#3fae98]"
+              >
+                🏠 Aktuelles Angebot: 1066 Ruppert Rd, Marco Island <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </li>
+            <li>
+              <a
                 href={`${site.kaufSiteUrl}/objekte`}
                 target="_blank"
                 rel="noreferrer"
