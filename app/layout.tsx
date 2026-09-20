@@ -15,9 +15,9 @@ const serif = Playfair_Display({
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const BASE_URL = "https://floridaimmobilienmarkt.de";
-const TITLE = "Deutscher Makler Florida | Marktberichte Marco Island & Naples";
+const TITLE = "Immobilienmarkt Southwest Florida | Marktberichte auf Deutsch";
 const DESCRIPTION =
-  "Deutscher Makler in Southwest Florida: Manuela Schinagl liefert aktuelle Marktberichte und Immobilienangebote für Marco Island, Naples, Bonita Springs & Estero – persönlich auf Deutsch.";
+  "Monatliche Marktberichte, Preisanalysen und Regionsdaten für den Immobilienmarkt in Marco Island, Naples, Bonita Springs & Estero – von Maklerin Manuela Schinagl auf Deutsch.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
