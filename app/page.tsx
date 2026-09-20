@@ -54,7 +54,7 @@ export default function HomePage() {
           <p className="mt-5 max-w-xl text-stone-200">
             Aktuelle Marktberichte, Preisanalysen und Regionsprofile für Marco
             Island, Naples, Bonita Springs und Estero – von Ihrer
-            deutschsprachigen Maklerin Manuela Schinagl, Ihrem Deutscher Makler-Kontakt in SW-Florida.
+            deutschsprachigen Maklerin Manuela Schinagl.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
