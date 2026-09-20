@@ -1,19 +1,23 @@
 import type { MetadataRoute } from "next";
-import { regions } from "@/lib/site";
+import { regions, blogPosts } from "@/lib/site";
 
 const BASE_URL = "https://floridaimmobilienmarkt.de";
 
 // Nur Seiten mit eigenständigem, einzigartigem Content werden aktiv zur
-// Indexierung vorgeschlagen (Startseite, Regionen, Marktbericht). Objekte,
-// Über Manuela, Kontakt und Blog sind inhaltlich identisch mit
+// Indexierung vorgeschlagen (Startseite, Regionen, Marktbericht, Blog).
+// Objekte, Über Manuela und Kontakt sind inhaltlich identisch mit
 // floridaimmobilienkauf.de und tragen dort ein Canonical-Tag – sie werden
 // daher bewusst NICHT in dieser Sitemap gelistet, um Duplicate-Content-
-// Konkurrenz zwischen den beiden Domains zu vermeiden.
+// Konkurrenz zwischen den beiden Domains zu vermeiden. Die Blog-
+// Marktberichte sind seit der Bereinigung von floridaimmobilienkauf.de
+// exklusiver, einzigartiger Content dieser Domain und werden daher aktiv
+// gelistet.
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     { path: "", changeFrequency: "weekly" as const, priority: 1 },
     { path: "/regionen", changeFrequency: "monthly" as const, priority: 0.8 },
     { path: "/markt", changeFrequency: "weekly" as const, priority: 0.9 },
+    { path: "/blog", changeFrequency: "weekly" as const, priority: 0.8 },
   ].map((r) => ({
     url: `${BASE_URL}${r.path}`,
     lastModified: new Date(),
@@ -28,5 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...regionRoutes];
+  const blogRoutes = blogPosts.map((p) => ({
+    url: `${BASE_URL}/blog/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.65,
+  }));
+
+  return [...staticRoutes, ...regionRoutes, ...blogRoutes];
 }
