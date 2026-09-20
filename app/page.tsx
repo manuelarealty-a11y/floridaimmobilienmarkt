@@ -49,12 +49,12 @@ export default function HomePage() {
             Marktberichte & Preisanalysen · Southwest Florida seit 2009
           </p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl leading-tight text-white md:text-5xl">
-            Der deutschsprachige Immobilienmarkt-Guide für Southwest Florida
+            Immobilienmarkt Marco Island &amp; Naples – Marktbericht Southwest Florida
           </h1>
           <p className="mt-5 max-w-xl text-stone-200">
-            Monatliche Marktberichte, Preisanalysen und Regionsprofile für Marco
-            Island, Naples, Bonita Springs und Estero – betreut von Ihrer
-            deutschsprachigen Maklerin Manuela Schinagl.
+            Aktuelle Marktberichte, Preisanalysen und Regionsprofile für Marco
+            Island, Naples, Bonita Springs und Estero – von Ihrer
+            deutschsprachigen Maklerin Manuela Schinagl, Ihrem Deutscher Makler-Kontakt in SW-Florida.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
