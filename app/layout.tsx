@@ -77,12 +77,13 @@ const jsonLd = {
   },
   sameAs: [
     "https://floridaimmobilienkauf.de",
+    "https://naplesrealestate.sale",
     site.rateMyAgent,
     site.instagram,
     site.linkedin,
     site.facebook,
   ],
-  mainEntityOfPage: "https://floridaimmobilienkauf.de",
+  mainEntityOfPage: BASE_URL,
 };
 
 const imageJsonLd = heroImageObject;
