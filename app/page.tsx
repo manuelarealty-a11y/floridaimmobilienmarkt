@@ -270,7 +270,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-20">
+      <section id="faq" className="bg-white py-20">
         <div className="mx-auto max-w-3xl px-6">
           <script
             type="application/ld+json"
