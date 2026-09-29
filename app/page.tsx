@@ -5,22 +5,39 @@ import { site, regions, blogPosts } from "@/lib/site";
 
 const faqs = [
   {
-    q: "Kann ich als Deutscher in Florida eine Immobilie kaufen?",
-    a: "Ja, der Immobilienkauf in Florida ist für Ausländer – auch ohne US-Visum oder Aufenthaltstitel – problemlos möglich. Es gibt keine Beschränkungen für ausländische Käufer.",
+    q: "Ist 2026 ein guter Zeitpunkt, um in Southwest Florida zu kaufen?",
+    a: "Ja — der Markt hat sich deutlich zugunsten der Käufer verschoben. Das Angebot ist größer als in den Vorjahren, Immobilien stehen im Schnitt länger zum Verkauf, und es gibt wieder echten Verhandlungsspielraum beim Preis. Wer gut vorbereitet kauft — Finanzierung oder Eigenkapital geklärt, klare Kriterien definiert —, findet 2026 bessere Konditionen als auf dem Höhepunkt des Verkäufermarkts. Die aktuellen Zahlen dazu finden Sie in unseren Marktberichten.",
+    link: true,
   },
   {
-    q: "Brauche ich eine US-amerikanische Bank für die Finanzierung?",
-    a: "Eine Finanzierung über US-Banken ist möglich, aber viele unserer Kunden aus dem DACH-Raum kaufen mit Eigenkapital. Wir beraten Sie zu beiden Optionen.",
+    q: "Wie entwickeln sich die Immobilienpreise in Naples und auf Marco Island?",
+    a: "Naples und Marco Island gehören zu den wertstabilsten Märkten Floridas — langfristig zeigen beide Lagen eine solide Wertentwicklung. Kurzfristig gibt es, wie überall, Schwankungen: Je nach Segment und Lage bewegen sich die Preise derzeit seitwärts oder leicht nach unten, was Käufern entgegenkommt. Die aktuellen Preisentwicklungen pro Region veröffentlichen wir laufend in unseren Marktberichten.",
+    link: true,
   },
   {
-    q: "Welche Nebenkosten fallen beim Kauf an?",
-    a: "Typischerweise 2–4% des Kaufpreises: Title Insurance, Notargebühren, Stempelsteuer und Maklergebühren (in Florida üblicherweise vom Verkäufer getragen).",
+    q: "Wo erzielen Käufer in Southwest Florida derzeit die besten Renditen?",
+    a: "Das hängt von Ihrer Strategie ab: Für die Ferienvermietung sind Lagen mit erlaubter Kurzzeitvermietung interessant — etwa Strandlagen auf Marco Island oder in Bonita Beach. Für die Langzeitmiete zählen eine stabile Mieternachfrage und moderate HOA-Gebühren. Wichtig: Nicht jede Community erlaubt jede Vermietungsform — das prüfen wir für jedes Objekt individuell. Sprechen Sie mich an, ich zeige Ihnen die aktuell spannendsten Optionen.",
+    link: false,
   },
   {
-    q: "Kann ich die Immobilie vermieten, wenn ich nicht in Florida bin?",
-    a: "Ja, viele unserer Käufer nutzen die Immobilie als Ferienvermietung (z.B. über Airbnb/VRBO) oder als Langzeitmiete. Wir empfehlen erfahrene Property-Manager.",
+    q: "Wie schnell muss ich mich bei einem guten Angebot entscheiden?",
+    a: "Der Zeitdruck der Jahre 2021/2022 ist vorbei. Da Immobilien heute im Schnitt deutlich länger am Markt sind, haben Käufer wieder Zeit für eine zweite Besichtigung, eine saubere Prüfung und eine überlegte Verhandlung. Trotzdem gilt: Exzellent bepreiste Objekte in Top-Lagen sind weiter schnell vergriffen — wer suchbereit ist und seine Finanzierung geklärt hat, sichert sich die besten Chancen.",
+    link: false,
   },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
 
 const steps = [
   { n: "01", title: "Marktanalyse", desc: "Aktuelle Marktberichte, Preise und Trends für Ihre Wunschregion." },
@@ -255,9 +272,13 @@ export default function HomePage() {
       {/* FAQ */}
       <section className="bg-white py-20">
         <div className="mx-auto max-w-3xl px-6">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
           <p className="text-center text-sm uppercase tracking-[0.2em] text-[#0f6b5c]">FAQ</p>
           <h2 className="mt-2 text-center font-serif text-3xl text-stone-900">
-            Häufige Fragen zum Immobilienkauf in Florida
+            Häufige Fragen zum Immobilienmarkt in Southwest Florida
           </h2>
           <div className="mt-10 divide-y divide-stone-200">
             {faqs.map((f) => (
@@ -267,6 +288,14 @@ export default function HomePage() {
                   <span className="ml-4 text-[#0f6b5c] group-open:rotate-45 transition-transform">+</span>
                 </summary>
                 <p className="mt-3 text-sm text-stone-600">{f.a}</p>
+                {f.link && (
+                  <Link
+                    href="/markt"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#0f6b5c] hover:underline"
+                  >
+                    Zum aktuellen Marktbericht <ArrowRight className="h-3 w-3" />
+                  </Link>
+                )}
               </details>
             ))}
           </div>
