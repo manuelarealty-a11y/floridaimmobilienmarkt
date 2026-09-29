@@ -14,6 +14,7 @@ const navItems = [
   { href: "/markt#verkaeufer", label: "Für Verkäufer", external: false },
   { href: site.kaufSiteUrl + "/objekte", label: "Objekte", external: true },
   { href: "/blog", label: "Blog", external: false },
+  { href: "/#faq", label: "FAQ", external: false },
   { href: "/ueber-manuela", label: "Über Manuela", external: false },
   { href: "/kontakt", label: "Kontakt", external: false },
 ];
