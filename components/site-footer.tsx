@@ -74,12 +74,32 @@ export function SiteFooter() {
             </li>
             <li>
               <a
+                href="https://admiralty206s.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-white font-medium hover:text-[#3fae98]"
+              >
+                🏠 Aktuelles Angebot: Admiralty 206, Marco Island <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </li>
+            <li>
+              <a
                 href={`${site.kaufSiteUrl}/objekte`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-1.5 hover:text-white"
               >
                 Objekte ansehen (floridaimmobilienkauf.de) <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://naplesrealestate.sale"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 hover:text-white"
+              >
+                Naples Real Estate (English site) <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </li>
             <li><Link href="/markt" className="hover:text-white">Marktberichte</Link></li>
