@@ -184,6 +184,10 @@ export const blogPosts: BlogPost[] = [
         type: "p",
         text: "Möchten Sie eine individuelle Einschätzung für Ihre Zielregion oder ein konkretes Objekt? Kontaktieren Sie mich gerne für ein kostenloses, unverbindliches Beratungsgespräch auf Deutsch.",
       },
+      {
+        type: "p",
+        text: "Kontakt: Manuela Schinagl, Manuela Realty International – (239) 450-5622, manuelarealty@gmail.com",
+      },
     ],
   },
   {
