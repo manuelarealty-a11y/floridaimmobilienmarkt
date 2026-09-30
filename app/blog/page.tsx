@@ -29,7 +29,7 @@ export default function BlogPage() {
             className="group flex flex-col gap-6 overflow-hidden rounded-2xl border border-stone-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:flex-row"
           >
             <div className="relative h-52 w-full shrink-0 overflow-hidden rounded-xl sm:h-40 sm:w-64">
-              <Image src={post.image} alt={post.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image src={post.image} alt={post.imageAlt ?? post.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="flex flex-col justify-center py-2">
               <p className="text-xs uppercase tracking-wide text-stone-500">
