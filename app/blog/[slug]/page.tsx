@@ -31,7 +31,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </p>
       <h1 className="mt-2 font-serif text-4xl text-stone-900">{post.title}</h1>
       <div className="relative mt-8 h-72 w-full overflow-hidden rounded-2xl md:h-96">
-        <Image src={post.image} alt={post.title} fill className="object-cover" priority />
+        <Image src={post.image} alt={post.imageAlt ?? post.title} fill className="object-cover" priority />
       </div>
 
       <div className="prose prose-stone mt-10 max-w-none">
