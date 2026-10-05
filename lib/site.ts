@@ -42,7 +42,7 @@ export const regions = [
     image: "https://galaxy-prod.tlcdn.com/gen/9c5e58ce919b463987a7ff55c96b90ac.png",
     medianPrice: "1.400.000 $ (Median-Verkaufspreis)",
     medianSource: "Redfin, Stand Juni 2026",
-    trend: "+3,5% ggü. Vorjahr · Ø 95 Tage bis Verkauf",
+    trend: "+3,5% ggü. Vorjahr · Ø 95 Tage bis Verkauf",
     description:
       "Naples verbindet mondäne Einkaufsmeilen wie die 5th Avenue South mit erstklassigen Golfclubs und einigen der teuersten Postleitzahlen der USA – etwa Port Royal und Pelican Bay.",
     highlights: [
@@ -59,7 +59,7 @@ export const regions = [
     image: "https://galaxy-prod.tlcdn.com/gen/233820ee371648748bc601e4cba423ba.png",
     medianPrice: "585.000 $ (Median-Verkaufspreis)",
     medianSource: "Redfin, Stand Juni 2026",
-    trend: "-0,9% ggü. Vorjahr · Ø 76 Tage bis Verkauf",
+    trend: "-0,9% ggü. Vorjahr · Ø 76 Tage bis Verkauf",
     description:
       "Bonita Springs bietet ein attraktives Preis-Leistungs-Verhältnis zwischen Naples und Fort Myers, mit Naturschutzgebieten, Golf-Communities und direktem Strandzugang.",
     highlights: [
@@ -76,7 +76,7 @@ export const regions = [
     image: "https://galaxy-prod.tlcdn.com/gen/9997cc685ae94d17a65f6e8f35ad6d41.png",
     medianPrice: "484.700 $ (Median-Verkaufspreis)",
     medianSource: "Redfin, Stand Juni 2026",
-    trend: "-7,0% ggü. Vorjahr · Ø 71 Tage bis Verkauf",
+    trend: "-7,0% ggü. Vorjahr · Ø 71 Tage bis Verkauf",
     description:
       "Estero zählt zu den am schnellsten wachsenden Gemeinden in Southwest Florida – mit modernen Golf- und See-Communities wie Miromar Lakes und exzellenter Infrastruktur.",
     highlights: [
@@ -110,7 +110,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Marktbericht Oktober 2026: Medianpreise, Angebotslage, Verkaufsdauer und Zinsniveau in Naples & Collier County – plus die wachsende Kluft zwischen Condos und Einfamilienhäusern.",
     image: "https://g.tlcdn.com/view/6f29477b4cd04f14b43b7c1e135c57db.jpg",
-    imageAlt: "Luftaufnahme der Küste von Naples, Florida bei Sonnenuntergang",
+    imageAlt: "Luftaufnahme der Küste von Naples, Florida bei Sonnenuntergang",
     content: [
       {
         type: "p",
@@ -126,7 +126,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Realtor.com (September 2026, Naples): Median-Angebotspreis 689.900 USD, Median-Verkaufspreis 595.900 USD, 371 USD pro Quadratfuß. Quelle: realtor.com Marktübersicht Naples, Stand September 2026.",
+        text: "Realtor.com (September 2026, Naples): Median-Angebotspreis 689.900 USD, Median-Verkaufspreis 595.900 USD, 371 USD pro Quadratfuß. Quelle: realtor.com Marktübersicht Naples, Stand September 2026.",
       },
       {
         type: "h2",
@@ -217,7 +217,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Im Regionsvergleich zeigt sich weiterhin eine deutliche Differenzierung. Naples bleibt mit einem Median-Verkaufspreis von rund 1.400.000 $ (+3,5% ggü. Vorjahr) die preislich stärkste Region, wobei aktuelle Marktberichte für August 2026 auch hier eine leichte monatliche Abkühlung von etwa -1% andeuten. Marco Island notiert bei 852.500 $ mit stabiler bis leicht rückläufiger Tendenz. Bonita Springs (585.000 $) und Estero (484.700 $) verzeichnen die deutlichsten Preisrückgänge gegenüber dem Vorjahr, wobei aktuelle Berichte für Bonita/Estero eine weitere Abschwächung von bis zu -3,9% im Jahresvergleich nennen. Southwest Florida insgesamt meldete für August 2026 einen regionalen Median-Verkaufspreis von rund 360.000 $ bei 32.307 aktiven Angeboten laut regionalen MLS-Daten.",
+        text: "Im Regionsvergleich zeigt sich weiterhin eine deutliche Differenzierung. Naples liegt mit einem Median-Verkaufspreis von ca. 575.000–625.000 $ (NABOR, August 2026: 575.000 $; Realtor.com, September 2026: 595.900 $) weiterhin im oberen Bereich der Region, wobei aktuelle Marktberichte für August 2026 auch hier eine leichte monatliche Abkühlung von etwa -1% andeuten. Marco Island notiert bei 852.500 $ mit stabiler bis leicht rückläufiger Tendenz. Bonita Springs (585.000 $) und Estero (484.700 $) verzeichnen die deutlichsten Preisrückgänge gegenüber dem Vorjahr, wobei aktuelle Berichte für Bonita/Estero eine weitere Abschwächung von bis zu -3,9% im Jahresvergleich nennen. Southwest Florida insgesamt meldete für August 2026 einen regionalen Median-Verkaufspreis von rund 360.000 $ bei 32.307 aktiven Angeboten laut regionalen MLS-Daten.",
       },
       {
         type: "h2",
@@ -283,24 +283,24 @@ export const marketStats = [
     label: "Median-Verkaufspreis Naples",
     value: "1.400.000 $",
     trend: "up" as const,
-    change: "+3,5% ggü. Vorjahr (Redfin, Juni 2026)",
+    change: "+3,5% ggü. Vorjahr (Redfin, Juni 2026)",
   },
   {
     label: "Median-Verkaufspreis Marco Island",
     value: "852.500 $",
     trend: "flat" as const,
-    change: "-0,9% ggü. Vorjahr (Zillow, Juli 2026)",
+    change: "-0,9% ggü. Vorjahr (Zillow, Juli 2026)",
   },
   {
     label: "Median-Verkaufspreis Bonita Springs",
     value: "585.000 $",
     trend: "down" as const,
-    change: "-0,9% ggü. Vorjahr (Redfin, Juni 2026)",
+    change: "-0,9% ggü. Vorjahr (Redfin, Juni 2026)",
   },
   {
     label: "Median-Verkaufspreis Estero",
     value: "484.700 $",
     trend: "down" as const,
-    change: "-7,0% ggü. Vorjahr (Redfin, Juni 2026)",
+    change: "-7,0% ggü. Vorjahr (Redfin, Juni 2026)",
   },
 ];
