@@ -282,7 +282,7 @@ export const marketStats = [
   {
     label: "Median-Verkaufspreis Naples",
     value: "ca. 575.000–625.000 $",
-    trend: "flat" as const,
+    trend: "flat" as "up" | "down" | "flat",
     change: "NABOR Aug. 2026: 575.000 $ · Realtor.com Sep. 2026: 595.900 $",
   },
   {
