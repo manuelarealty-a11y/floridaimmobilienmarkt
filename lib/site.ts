@@ -23,9 +23,9 @@ export const regions = [
     name: "Marco Island",
     tagline: "Exklusive Strandlage, Wasserfront-Immobilien, gehobenes Inselleben",
     image: "https://galaxy-prod.tlcdn.com/gen/db6a9019316a4ef8bd950a5f6f8a5878.png",
-    medianPrice: "852.500 $ (Median-Verkaufspreis)",
-    medianSource: "Zillow, Stand Juli 2026",
-    trend: "Ø 88 Tage bis Pending · 547 aktive Angebote",
+    medianPrice: "ca. 805.000–875.000 $ (Median-Verkaufspreis)",
+    medianSource: "Realtor.com, September 2026; Zillow & Redfin, August 2026",
+    trend: "Realtor.com: 860.000 $ · 566 aktive Angebote",
     description:
       "Marco Island gilt als eine der exklusivsten Barriereinseln Südwestfloridas – kilometerlange weiße Sandstrände, türkisfarbenes Wasser und ein ruhiges Inselleben treffen auf gehobene Wasserfront-Architektur.",
     highlights: [
@@ -57,9 +57,9 @@ export const regions = [
     name: "Bonita Springs",
     tagline: "Familienfreundlich, Naturparks, attraktive Preisspanne",
     image: "https://galaxy-prod.tlcdn.com/gen/233820ee371648748bc601e4cba423ba.png",
-    medianPrice: "585.000 $ (Median-Verkaufspreis)",
-    medianSource: "Redfin, Stand Juni 2026",
-    trend: "-0,9% ggü. Vorjahr · Ø 76 Tage bis Verkauf",
+    medianPrice: "ca. 525.000–545.000 $ (Median-Verkaufspreis)",
+    medianSource: "Realtor.com, September 2026; Redfin & Zillow, August 2026",
+    trend: "Realtor.com: 525.000 $ · Redfin: ca. 545.000 $",
     description:
       "Bonita Springs bietet ein attraktives Preis-Leistungs-Verhältnis zwischen Naples und Fort Myers, mit Naturschutzgebieten, Golf-Communities und direktem Strandzugang.",
     highlights: [
@@ -74,9 +74,9 @@ export const regions = [
     name: "Estero",
     tagline: "Moderne Entwicklungen, hervorragende Infrastruktur",
     image: "https://galaxy-prod.tlcdn.com/gen/9997cc685ae94d17a65f6e8f35ad6d41.png",
-    medianPrice: "484.700 $ (Median-Verkaufspreis)",
-    medianSource: "Redfin, Stand Juni 2026",
-    trend: "-7,0% ggü. Vorjahr · Ø 71 Tage bis Verkauf",
+    medianPrice: "ca. 490.000–500.000 $ (Median-Verkaufspreis)",
+    medianSource: "Redfin & Zillow, August 2026",
+    trend: "Redfin: ca. 490.000 $ · Zillow: ca. 502.000 $",
     description:
       "Estero zählt zu den am schnellsten wachsenden Gemeinden in Southwest Florida – mit modernen Golf- und See-Communities wie Miromar Lakes und exzellenter Infrastruktur.",
     highlights: [
@@ -217,7 +217,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Im Regionsvergleich zeigt sich weiterhin eine deutliche Differenzierung. Naples liegt mit einem Median-Verkaufspreis von ca. 575.000–625.000 $ (NABOR, August 2026: 575.000 $; Realtor.com, September 2026: 595.900 $) weiterhin im oberen Bereich der Region, wobei aktuelle Marktberichte für August 2026 auch hier eine leichte monatliche Abkühlung von etwa -1% andeuten. Marco Island notiert bei 852.500 $ mit stabiler bis leicht rückläufiger Tendenz. Bonita Springs (585.000 $) und Estero (484.700 $) verzeichnen die deutlichsten Preisrückgänge gegenüber dem Vorjahr, wobei aktuelle Berichte für Bonita/Estero eine weitere Abschwächung von bis zu -3,9% im Jahresvergleich nennen. Southwest Florida insgesamt meldete für August 2026 einen regionalen Median-Verkaufspreis von rund 360.000 $ bei 32.307 aktiven Angeboten laut regionalen MLS-Daten.",
+        text: "Im Regionsvergleich zeigt sich weiterhin eine deutliche Differenzierung. Naples liegt mit einem Median-Verkaufspreis von ca. 575.000–625.000 $ (NABOR, August 2026: 575.000 $; Realtor.com, September 2026: 595.900 $) weiterhin im oberen Bereich der Region, wobei aktuelle Marktberichte für August 2026 auch hier eine leichte monatliche Abkühlung von etwa -1% andeuten. Marco Island liegt bei rund 860.000 $ (Realtor.com, September 2026; Redfin, August 2026: ca. 874.000 $). Bonita Springs notiert bei ca. 525.000–545.000 $ (Realtor.com, September 2026: 525.000 $; Redfin/Zillow, August 2026: ca. 545.000 $) und Estero bei ca. 490.000–500.000 $ (Redfin/Zillow, August 2026). Southwest Florida insgesamt meldete für August 2026 einen regionalen Median-Verkaufspreis von rund 360.000 $ bei 32.307 aktiven Angeboten laut regionalen MLS-Daten.",
       },
       {
         type: "h2",
@@ -287,20 +287,20 @@ export const marketStats = [
   },
   {
     label: "Median-Verkaufspreis Marco Island",
-    value: "852.500 $",
+    value: "ca. 805.000–875.000 $",
     trend: "flat" as const,
-    change: "-0,9% ggü. Vorjahr (Zillow, Juli 2026)",
+    change: "Realtor.com Sep. 2026: 860.000 $ · Redfin Aug. 2026: ca. 874.000 $",
   },
   {
     label: "Median-Verkaufspreis Bonita Springs",
-    value: "585.000 $",
-    trend: "down" as const,
-    change: "-0,9% ggü. Vorjahr (Redfin, Juni 2026)",
+    value: "ca. 525.000–545.000 $",
+    trend: "flat" as const,
+    change: "Realtor.com Sep. 2026: 525.000 $ · Redfin/Zillow Aug. 2026: ca. 545.000 $",
   },
   {
     label: "Median-Verkaufspreis Estero",
-    value: "484.700 $",
-    trend: "down" as const,
-    change: "-7,0% ggü. Vorjahr (Redfin, Juni 2026)",
+    value: "ca. 490.000–500.000 $",
+    trend: "flat" as const,
+    change: "Redfin Aug. 2026: ca. 490.000 $ · Zillow Aug. 2026: ca. 502.000 $",
   },
 ];
