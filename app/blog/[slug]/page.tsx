@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = blogPosts.find((x) => x.slug === slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Florida Immobilienmarkt`,
+    title: post.title,
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: { images: [{ url: post.image }] },
