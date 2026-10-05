@@ -40,9 +40,9 @@ export const regions = [
     name: "Naples",
     tagline: "Fifth Avenue, Top-Golfanlagen, luxuriöse Condos & Villen",
     image: "https://galaxy-prod.tlcdn.com/gen/9c5e58ce919b463987a7ff55c96b90ac.png",
-    medianPrice: "1.400.000 $ (Median-Verkaufspreis)",
-    medianSource: "Redfin, Stand Juni 2026",
-    trend: "+3,5% ggü. Vorjahr · Ø 95 Tage bis Verkauf",
+    medianPrice: "ca. 575.000–625.000 $ (Median-Verkaufspreis)",
+    medianSource: "NABOR, August 2026; Realtor.com, September 2026",
+    trend: "NABOR: 575.000 $ · Realtor.com: 595.900 $",
     description:
       "Naples verbindet mondäne Einkaufsmeilen wie die 5th Avenue South mit erstklassigen Golfclubs und einigen der teuersten Postleitzahlen der USA – etwa Port Royal und Pelican Bay.",
     highlights: [
@@ -281,9 +281,9 @@ export const blogPosts: BlogPost[] = [
 export const marketStats = [
   {
     label: "Median-Verkaufspreis Naples",
-    value: "1.400.000 $",
-    trend: "up" as const,
-    change: "+3,5% ggü. Vorjahr (Redfin, Juni 2026)",
+    value: "ca. 575.000–625.000 $",
+    trend: "flat" as const,
+    change: "NABOR Aug. 2026: 575.000 $ · Realtor.com Sep. 2026: 595.900 $",
   },
   {
     label: "Median-Verkaufspreis Marco Island",
