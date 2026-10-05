@@ -1,4 +1,4 @@
-export const metadata = { title: "Cookie-Richtlinie | Florida Immobilienmarkt" };
+export const metadata = { title: "Cookie-Richtlinie" };
 
 export default function CookiesPage() {
   return (

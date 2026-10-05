@@ -93,6 +93,7 @@ type BlogPostContentBlock = { type: "h2" | "p"; text: string };
 type BlogPost = {
   slug: string;
   title: string;
+  seoTitle?: string;
   date: string;
   readTime: string;
   excerpt: string;
@@ -105,6 +106,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "marktbericht-oktober-2026",
     title: "Immobilienmarkt Südwest-Florida im Oktober 2026: Die Zahlen",
+    seoTitle: "Marktbericht Oktober 2026: Südwest-Florida",
     date: "1. Oktober 2026",
     readTime: "7 Min. Lesezeit",
     excerpt:
@@ -193,6 +195,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "sw-florida-immobilien-september-2026",
     title: "Marktbericht September 2026: SW-Florida Immobilienmarkt",
+    seoTitle: "Marktbericht September 2026: SW-Florida",
     date: "1. September 2026",
     readTime: "7 Min. Lesezeit",
     excerpt:
@@ -252,6 +255,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "sw-florida-immobilien-august-2026",
     title: "Investitionsstrategien SW Florida August 2026",
+    seoTitle: "Investieren in SW-Florida: August 2026",
     date: "1. August 2026",
     readTime: "6 Min. Lesezeit",
     excerpt:
@@ -261,6 +265,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "sw-florida-immobilien-juli-2026",
     title: "Marktbericht Juli 2026: Auswirkungen der Hurricane-Saison auf Angebot und Preise",
+    seoTitle: "Marktbericht Juli 2026: Hurricane-Saison",
     date: "1. Juli 2026",
     readTime: "6 Min. Lesezeit",
     excerpt:
@@ -270,6 +275,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "sw-florida-immobilienmarkt-juni-2026",
     title: "Marktdaten Juni 2026: Medianpreise und Angebotslage im Regionsvergleich",
+    seoTitle: "Marktdaten Juni 2026: Regionsvergleich",
     date: "9. Juni 2026",
     readTime: "6 Min. Lesezeit",
     excerpt:
