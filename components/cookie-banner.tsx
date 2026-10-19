@@ -9,6 +9,10 @@ export function CookieBanner() {
   useEffect(() => {
     const consent = window.localStorage.getItem("fim-cookie-consent");
     if (!consent) setVisible(true);
+    // Jeder Link/Button kann den Banner erneut öffnen: window.dispatchEvent(new Event("open-cookie-settings"))
+    const reopen = () => setVisible(true);
+    window.addEventListener("open-cookie-settings", reopen);
+    return () => window.removeEventListener("open-cookie-settings", reopen);
   }, []);
 
   const accept = (value: "all" | "necessary") => {
@@ -17,7 +21,20 @@ export function CookieBanner() {
     setVisible(false);
   };
 
-  if (!visible) return <MetaPixel />;
+  if (!visible) {
+    return (
+      <>
+        <MetaPixel />
+        <button
+          type="button"
+          onClick={() => setVisible(true)}
+          className="fixed bottom-3 left-3 z-40 rounded-full border border-stone-300 bg-white/95 px-3 py-1.5 text-[11px] text-stone-700 shadow hover:bg-stone-100"
+        >
+          🍪 Cookie-Einstellungen
+        </button>
+      </>
+    );
+  }
 
   return (
     <>
