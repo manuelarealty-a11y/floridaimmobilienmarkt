@@ -21,7 +21,7 @@ export default function DatenschutzPage() {
       </nav>
 
       <h1 className="text-3xl font-bold text-stone-900 mb-2">Datenschutzerklärung</h1>
-      <p className="text-stone-500 text-sm mb-10">Stand: September 2026 · Gemäß DSGVO (EU) 2016/679</p>
+      <p className="text-stone-500 text-sm mb-10">Stand: Oktober 2026 · Gemäß DSGVO (EU) 2016/679</p>
 
       <div className="space-y-10 text-stone-700 leading-relaxed">
         <section>
@@ -62,12 +62,18 @@ export default function DatenschutzPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-stone-900 mb-3">4. Cookies</h2>
+          <h2 className="text-xl font-bold text-stone-900 mb-3">4. Cookies &amp; Meta-Pixel (Marketing)</h2>
           <p>
-            Diese Website verwendet <strong>technisch notwendige Cookies</strong>, die für den ordnungsgemäßen Betrieb der Website erforderlich sind. Mit Ihrer Einwilligung setzen wir zusätzlich optionale Cookies zur Reichweitenmessung ein, um unsere Inhalte zu verbessern. Sie können Ihre Einwilligung jederzeit widerrufen.
+            Diese Website verwendet <strong>technisch notwendige Cookies</strong>, die für den ordnungsgemäßen Betrieb der Website erforderlich sind. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO sowie § 25 Abs. 2 TDDDG; hierfür ist keine Einwilligung erforderlich.
           </p>
           <p className="mt-2">
-            Rechtsgrundlage für notwendige Cookies: Art. 6 Abs. 1 lit. f DSGVO. Für optionale Cookies gilt Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+            <strong>Meta-Pixel:</strong> Wenn Sie im Cookie-Banner „Alle akzeptieren“ wählen, setzen wir mit Ihrer ausdrücklichen Einwilligung das Meta-Pixel (Pixel-ID 1702488940844943) der Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland („Meta“) ein. Das Pixel wird erst nach Ihrer Einwilligung geladen; vorher findet keine Verbindung zu Servern von Meta statt. Es erfasst u.&nbsp;a. Ihre IP-Adresse, Browser- und Geräteinformationen, die aufgerufene Seite, die Referrer-URL sowie eine Cookie-Kennung (z.&nbsp;B. „_fbp“). Zweck ist die Erfolgsmessung unserer Werbeanzeigen sowie die Bildung von Zielgruppen für Werbung auf Facebook und Instagram (Remarketing). Über alle unsere Websites hinweg kann dasselbe Pixel verwendet werden, um eine gemeinsame Zielgruppe zu bilden.
+          </p>
+          <p className="mt-2">
+            Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Die Daten können an Meta und in die USA übermittelt werden; Meta ist unter dem EU-US Data Privacy Framework zertifiziert bzw. nutzt Standardvertragsklauseln. Für die Erhebung der Daten sind wir gemeinsam mit Meta verantwortlich (Art. 26 DSGVO); die Verarbeitung nach der Übermittlung liegt in der Verantwortung von Meta. Informationen: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-[#0f6b5c] hover:underline">Datenschutzrichtlinie von Meta</a>.
+          </p>
+          <p className="mt-2">
+            <strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie die Website-Daten (lokaler Speicher/Cookies) dieser Website in Ihrem Browser löschen; der Cookie-Banner erscheint danach erneut und Sie können „Nur notwendige“ wählen. Alternativ schreiben Sie uns an office@floridaimmobilienmarkt.de.
           </p>
           <p className="mt-2">
             Detaillierte Informationen entnehmen Sie unserer{" "}
@@ -127,7 +133,7 @@ export default function DatenschutzPage() {
         <section>
           <h2 className="text-xl font-bold text-stone-900 mb-3">9. Aktualität dieser Datenschutzerklärung</h2>
           <p>
-            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand September 2026. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Version finden Sie stets unter{" "}
+            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Oktober 2026. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Version finden Sie stets unter{" "}
             <a href={`${BASE_URL}/datenschutz`} className="text-[#0f6b5c] hover:underline">floridaimmobilienmarkt.de/datenschutz</a>.
           </p>
         </section>
