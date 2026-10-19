@@ -25,10 +25,9 @@ export default function CookiesPage() {
           in unserer <a href="/datenschutz">Datenschutzerklärung</a>.
         </p>
         <p>
-          Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die
-          Website-Daten (lokaler Speicher/Cookies) dieser Website in Ihrem Browser
-          löschen; der Cookie-Banner erscheint danach erneut und Sie können „Nur
-          notwendige“ wählen.
+          Sie können Ihre Einwilligung jederzeit widerrufen oder ändern: Klicken
+          Sie auf jeder Seite unten links auf „Cookie-Einstellungen“ und wählen Sie
+          „Nur notwendige“.
         </p>
         <p>
           Für Fragen zum Datenschutz kontaktieren Sie uns unter{" "}
