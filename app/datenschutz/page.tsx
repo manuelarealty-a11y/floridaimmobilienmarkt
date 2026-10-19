@@ -73,7 +73,7 @@ export default function DatenschutzPage() {
             Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Die Daten können an Meta und in die USA übermittelt werden; Meta ist unter dem EU-US Data Privacy Framework zertifiziert bzw. nutzt Standardvertragsklauseln. Für die Erhebung der Daten sind wir gemeinsam mit Meta verantwortlich (Art. 26 DSGVO); die Verarbeitung nach der Übermittlung liegt in der Verantwortung von Meta. Informationen: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer" className="text-[#0f6b5c] hover:underline">Datenschutzrichtlinie von Meta</a>.
           </p>
           <p className="mt-2">
-            <strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie die Website-Daten (lokaler Speicher/Cookies) dieser Website in Ihrem Browser löschen; der Cookie-Banner erscheint danach erneut und Sie können „Nur notwendige“ wählen. Alternativ schreiben Sie uns an office@floridaimmobilienmarkt.de.
+            <strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen oder ändern, indem Sie auf jeder Seite unten links auf „Cookie-Einstellungen“ klicken und „Nur notwendige“ wählen. Alternativ schreiben Sie uns an office@floridaimmobilienmarkt.de.
           </p>
           <p className="mt-2">
             Detaillierte Informationen entnehmen Sie unserer{" "}
