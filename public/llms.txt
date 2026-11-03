@@ -8,6 +8,7 @@
 - [Markt](https://floridaimmobilienmarkt.de/markt): Aktueller Marktbericht.
 - [Regionen](https://floridaimmobilienmarkt.de/regionen): Gebietsuebersicht Naples, Marco Island, Bonita Springs, Estero.
 - [Blog](https://floridaimmobilienmarkt.de/blog): Markt-Updates.
+- [Immobilienmarkt Suedwest-Florida im November 2026: Die Zahlen](https://floridaimmobilienmarkt.de/blog/immobilienmarkt-suedwest-florida-november-2026): Marktbericht mit Medianpreisen, Bestand, Verkaufsdauer und Zinsen fuer Naples, Marco Island, Bonita Springs und Estero, jeweils mit Quellen und Stand-Datum (3. November 2026).
 - [Ueber Manuela](https://floridaimmobilienmarkt.de/ueber-manuela)
 - [Kontakt](https://floridaimmobilienmarkt.de/kontakt)
 
