@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts, site } from "@/lib/site";
+import { site } from "@/lib/site";
+import { blogPosts } from "@/lib/all-posts";
+import { novemberReport } from "@/lib/blog-november-2026";
+import { BlogRich } from "@/components/blog-rich";
+
+const BASE = "https://floridaimmobilienmarkt.de";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -11,6 +16,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = blogPosts.find((x) => x.slug === slug);
   if (!post) return {};
+  if (slug === novemberReport.slug) {
+    const m = novemberReport.meta;
+    const url = `${BASE}/blog/${slug}`;
+    return {
+      title: { absolute: m.title },
+      description: m.description,
+      alternates: { canonical: url },
+      robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+      openGraph: {
+        type: "article",
+        locale: "de_DE",
+        siteName: "floridaimmobilienmarkt.de",
+        title: m.ogTitle,
+        description: m.ogDescription,
+        url,
+        publishedTime: m.publishedTime,
+        section: m.section,
+        tags: m.tags,
+        images: [{ url: m.image, width: 1200, height: 630, alt: m.imageAlt }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: m.twitterTitle,
+        description: m.twitterDescription,
+        images: [{ url: m.image, alt: m.imageAlt }],
+      },
+    };
+  }
   return {
     title: post.seoTitle ?? post.title,
     description: post.excerpt,
@@ -23,9 +56,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const post = blogPosts.find((x) => x.slug === slug);
   if (!post) notFound();
+  const rich = slug === novemberReport.slug ? novemberReport : null;
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
+      {rich &&
+        rich.jsonLd.map((d, i) => (
+          <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(d) }} />
+        ))}
       <p className="text-xs uppercase tracking-wide text-stone-500">
         Marktbericht · {post.date} · {post.readTime}
       </p>
@@ -35,7 +73,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </div>
 
       <div className="prose prose-stone mt-10 max-w-none">
-        {post.content ? (
+        {rich ? (
+          <>
+            <BlogRich blocks={rich.content} />
+            <h2>Weiterführend</h2>
+            <ul>
+              {rich.related.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : post.content ? (
           post.content.map((block, i) =>
             block.type === "h2" ? (
               <h2 key={i}>{block.text}</h2>

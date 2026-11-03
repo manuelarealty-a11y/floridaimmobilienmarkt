@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { regions, blogPosts } from "@/lib/site";
+import { regions } from "@/lib/site";
+import { blogPosts } from "@/lib/all-posts";
 
 const BASE_URL = "https://floridaimmobilienmarkt.de";
 

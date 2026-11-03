@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { blogPosts } from "@/lib/site";
+import { blogPosts } from "@/lib/all-posts";
 
 export const metadata = {
   title: "Blog: Marktberichte & Aktuelles auf Deutsch",
