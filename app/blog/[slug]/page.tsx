@@ -8,6 +8,26 @@ import { BlogRich } from "@/components/blog-rich";
 
 const BASE = "https://floridaimmobilienmarkt.de";
 
+const plain = (t: string) =>
+  t.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1").replace(/\*\*?/g, "").trim();
+
+// Build the FAQPage schema from the visible FAQ (each h3 + the paragraph that follows),
+// so schema and page can never drift apart.
+function faqFromContent(blocks: typeof novemberReport.content) {
+  const start = blocks.findIndex((b) => b.type === "h2" && b.text.startsWith("Häufige Fragen"));
+  if (start < 0) return [];
+  const out: { "@type": "Question"; name: string; acceptedAnswer: { "@type": "Answer"; text: string } }[] = [];
+  for (let i = start + 1; i < blocks.length; i++) {
+    const b = blocks[i];
+    if (b.type === "h2") break;
+    const next = blocks[i + 1];
+    if (b.type === "h3" && next && next.type === "p") {
+      out.push({ "@type": "Question", name: plain(b.text), acceptedAnswer: { "@type": "Answer", text: plain(next.text) } });
+    }
+  }
+  return out;
+}
+
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
 }
@@ -61,9 +81,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
       {rich &&
-        rich.jsonLd.map((d, i) => (
-          <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(d) }} />
-        ))}
+        rich.jsonLd.map((d, i) => {
+          const faq = faqFromContent(rich.content);
+          const data = d["@type"] === "FAQPage" && faq.length ? { ...d, mainEntity: faq } : d;
+          return <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
+        })}
       <p className="text-xs uppercase tracking-wide text-stone-500">
         Marktbericht · {post.date} · {post.readTime}
       </p>
